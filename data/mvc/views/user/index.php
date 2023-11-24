@@ -43,7 +43,9 @@
       <a href="/user/show/<?php echo $user->id ?>" class="btn btn-primary">Ver Usuario</a>
     </td>
     <td>
-      <a href="/user/edit/<?php echo $user->id ?>" class="btn btn-primary">Actualizar Usuario</a>
+     <a href="/user/edit/<?php echo $user->id ?>" class="btn btn-primary">Actualizar Usuario</a>
+     <a href="/user/delete/<?php echo $user->id ?>" class="btn btn-primary">Borrar Usuario</a>
+
     </td>
     </tr>
   <?php } ?>
