@@ -47,5 +47,11 @@ class UserController
         $user->save(); //llamo metodos del modelo
         header("Location: /user");
     }
+    function delete($args){
+        $id=(int)$args[0];
+        $user=User::find($id);
+        $user->delete();
+        header("Location: /user");
+    }
 }//fin clase
 

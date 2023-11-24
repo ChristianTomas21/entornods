@@ -39,7 +39,7 @@ class User extends Model{
     }
 
     public function save(){
-        //echo "<br> Actualizando un registro...";ç
+        //echo "<br> Actualizando un registro...";
         $dbh = self::db();
         $sql = "UPDATE users 
         SET name = :nombre,surname = :apellidos,email = :email,birthdate = :fechanac
@@ -50,6 +50,13 @@ class User extends Model{
         $statement->bindValue(":apellidos",$this->surname);
         $statement->bindValue(":email",$this->email);
         $statement->bindValue(":fechanac",$this->birthdate);
+        return $statement->execute();
+    }
+    public function delete(){
+        $dbh = User::db();
+        $sql="DELETE FROM users WHERE id=:id";
+        $statement=$dbh->prepare($sql);
+        $statement->bindValue(":id",$this->id);
         return $statement->execute();
     }
 }

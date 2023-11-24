@@ -44,7 +44,7 @@
     </td>
     <td>
      <a href="/user/edit/<?php echo $user->id ?>" class="btn btn-primary">Actualizar Usuario</a>
-     <a href="/user/delete/<?php echo $user->id ?>" class="btn btn-primary">Borrar Usuario</a>
+     <a href="/user/delete/<?php echo $user->id ?>" onclick="return confirm('Estas seguro de borrar este usuario?')" class="btn btn-primary">Borrar Usuario</a>
 
     </td>
     </tr>
