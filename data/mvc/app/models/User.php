@@ -1,6 +1,6 @@
 <?php
 namespace App\Models;
-require "../core/Model.php";
+//require "../core/Model.php";
 
 use Core\Model;
 use PDO;

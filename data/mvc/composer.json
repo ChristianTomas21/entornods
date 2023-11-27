@@ -6,13 +6,15 @@
             "email": "tomascabrera21@iessantiagohernandez.com"
         }
     ],
-        "require": {},
         "autoload": {
             "psr-4": {
                 "Core\\": "core/",
                 "App\\Controllers\\": "app/controllers/",
                 "App\\Models\\": "app/models/"
             }
-        }
+        },
+    "require": {
+        "dompdf/dompdf": "^2.0",
+        "nette/mail": "^4.0"
     }
-
+}

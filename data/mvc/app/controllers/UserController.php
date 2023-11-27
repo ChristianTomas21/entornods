@@ -1,7 +1,7 @@
 <?php
 namespace App\Controllers;
 
-require "../app/models/User.php";
+//require "../app/models/User.php";
 use App\Models\User;
 
 class UserController
