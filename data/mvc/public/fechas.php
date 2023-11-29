@@ -1,4 +1,5 @@
 <?php
+
 $cadenafecha = "12/10/2022";
 $fecha = \DateTime::createFromFormat('d/m/Y',$cadenafecha);
 echo "<br>ObjetoFecha";

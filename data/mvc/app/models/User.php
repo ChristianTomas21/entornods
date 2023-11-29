@@ -3,17 +3,24 @@ namespace App\Models;
 //require "../core/Model.php";
 
 use Core\Model;
+use DateTime;
 use PDO;
 
 class User extends Model{
    
+    public function __construct()
+    {
+        $this->birthdate = DateTime::createFromFormat('Y-m-d',$this->birthdate);
+    } 
+
+
     public static function all()
     {
         $dbh = User::db();
         $sql = "SELECT * FROM users";
         $statement = $dbh->query($sql);
         $statement->setFetchMode(PDO::FETCH_CLASS,User::class);
-        $users = $statement->fetchAll(PDO::FETCH_CLASS);
+        $users = $statement->fetchAll(PDO::FETCH_CLASS,User::class);
         return $users;
     }
     public static function find($id){
@@ -59,4 +66,18 @@ class User extends Model{
         $statement->bindValue(":id",$this->id);
         return $statement->execute();
     }
+    public function setPassword($password){
+        $dbh = User::db();
+        $password = password_hash($password,PASSWORD_BCRYPT);
+        $sql = "UPDATE users SET password = :password WHERE id=:id";
+        $statement=$dbh->prepare($sql);
+        $statement->bindValue(":id",$this->id);
+        $statement->bindValue(":password", $password);
+        return $statement->execute();
+    
+    }
+    public function passwordVerify($password,$user){
+        return password_hash($password,$user->password);
+    }
+
 }

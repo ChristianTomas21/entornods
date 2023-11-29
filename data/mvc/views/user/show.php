@@ -27,9 +27,9 @@
     <li><strong>Nombre: </strong><?php echo $user->name ?></li>
     <li><strong>Apellidos: </strong><?php echo $user->surname ?></li>
     <li><strong>Email: </strong><?php echo $user->email ?></li>
-    <li><strong>F. nacimiento: </strong><?php echo $user->birthdate ?></li>
+    <li><strong>F. nacimiento: </strong><?php echo $user->birthdate->format('d/m/Y') ?></li>
 </ul>
-    
+    <a href="/user/toPdf/<?php echo $user->id ?>">PDF</a>
     </main>
     <?php require "../views/common/footer.php" ?>
   </body>

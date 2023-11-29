@@ -38,19 +38,20 @@
       <td><?php echo $user->name ?></td>
       <td><?php echo $user->surname ?></td>
       <td><?php echo $user->email ?></td>
-      <td><?php echo $user->birthdate ?></td>
+      <td><?php echo $user->birthdate->format('d/m/Y')?></td>
       <td>
       <a href="/user/show/<?php echo $user->id ?>" class="btn btn-primary">Ver Usuario</a>
     </td>
     <td>
      <a href="/user/edit/<?php echo $user->id ?>" class="btn btn-primary">Actualizar Usuario</a>
      <a href="/user/delete/<?php echo $user->id ?>" onclick="return confirm('Estas seguro de borrar este usuario?')" class="btn btn-primary">Borrar Usuario</a>
-
+     <a href="/user/resetpassword/<?php echo $user->id ?>" onclick="return confirm('Estas seguro de resetear la contraseña?')" class="btn btn-primary">ResetPassword</a>
     </td>
     </tr>
   <?php } ?>
 </table>
-    
+<a href="/user/resetAllPassword/" onclick="return confirm('Estas seguro de resetear todas las contraseñas?')" class="btn btn-primary">ResetAllPassword</a>
+
     </main>
     <?php require "../views/common/footer.php" ?>
   </body>
